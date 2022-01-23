@@ -7,6 +7,7 @@
     <div class="right-menu">
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
+          <!--          <div style="display: block">{{ name }}</div>-->
           <!--          <img :src="avatar+'?imageView2/1/w/80/h/80'" class="user-avatar">-->
           <img src="https://img2.baidu.com/it/u=2187987832,3211119238&fm=253&fmt=auto&app=138&f=PNG?w=300&h=300" class="user-avatar">
           <i class="el-icon-caret-bottom" />
@@ -36,7 +37,7 @@
 import { mapGetters } from 'vuex'
 import Breadcrumb from '@/components/Breadcrumb'
 import Hamburger from '@/components/Hamburger'
-import { removeId, removeRole, removeUsername } from '@/utils/auth'
+import { getUsername, removeId, removeRole, removeUsername } from '@/utils/auth'
 
 export default {
   components: {
@@ -49,6 +50,11 @@ export default {
       'avatar'
     ])
   },
+  data() {
+    return {
+      name: getUsername()
+    }
+  },
   methods: {
     toggleSideBar() {
       this.$store.dispatch('app/toggleSideBar')
@@ -58,7 +64,8 @@ export default {
       removeId()
       removeRole()
       await this.$store.dispatch('user/logout')
-      this.$router.push(`/login?redirect=${this.$route.fullPath}`)
+      // this.$router.push(`/login?redirect=${this.$route.fullPath}`)
+      this.$router.push(`/`)
     }
   }
 }

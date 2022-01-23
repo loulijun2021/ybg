@@ -6,9 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="3a3bfb97-c0ce-4dcd-b371-120fd6850a9f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/common/TokenInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/common/TokenInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/controller/UserInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/controller/UserInfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lou/cloud_office_back/common/TokenInterceptor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lou/cloud_office_back/config/SecurityConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lou/cloud_office_back/controller/UserInfoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lou/cloud_office_back/controller/UserInfoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud_office_front/src/components/Breadcrumb/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../cloud_office_front/src/components/Breadcrumb/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud_office_front/src/layout/components/Navbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../cloud_office_front/src/layout/components/Navbar.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cloud_office_front/src/permission.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cloud_office_front/src/permission.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cloud_office_front/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cloud_office_front/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cloud_office_front/src/store/modules/permission.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cloud_office_front/src/store/modules/permission.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud_office_front/src/views/login/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../cloud_office_front/src/views/login/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +33,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="23rZobNhTsTufLPEpPHFL3i0piw" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -93,7 +109,7 @@
       <workItem from="1642736108117" duration="15756000" />
       <workItem from="1642768861478" duration="4289000" />
       <workItem from="1642911185320" duration="1678000" />
-      <workItem from="1642914596303" duration="967000" />
+      <workItem from="1642914596303" duration="4809000" />
     </task>
     <servers />
   </component>

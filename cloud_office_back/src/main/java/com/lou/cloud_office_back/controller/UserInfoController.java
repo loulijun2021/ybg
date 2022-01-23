@@ -35,7 +35,7 @@ public class UserInfoController {
 //        System.out.println(res);
         if (res != null) {
             String token = TokenUtil.sign(res.getUsername());
-            result.put("token", token);
+//            result.put("token", token);
             result.put("role", res.getRole());
             result.put("id",res.getId());
             result.put("username", res.getUsername());
