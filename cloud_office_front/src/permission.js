@@ -33,9 +33,9 @@ router.beforeEach(async(to, from, next) => {
 
       // 生成可访问的路由表
       if (getRole() === '1') {
-        await store.dispatch('permission/generateRoutes', ['0', '1'])
-      } else if (getRole() === '0') {
         await store.dispatch('permission/generateRoutes', ['1'])
+      } else if (getRole() === '0') {
+        await store.dispatch('permission/generateRoutes', ['0'])
       }
       // 动态添加可访问路由表
       router.addRoutes(store.getters.addRouters)

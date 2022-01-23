@@ -50,14 +50,16 @@ const mutations = {
 const actions = {
   generateRoutes({ commit }, roles) {
     return new Promise(resolve => {
-      let accessedRoutes
+      // let accessedRoutes
       // 判断 如果为超级管理员，则包含所有路由
-      if (roles.includes('0')) {
-        accessedRoutes = asyncRoutes || []
-      } else {
-        // 否则只包含过滤后的路由
-        accessedRoutes = filterAsyncRoutes(asyncRoutes, roles)
-      }
+      // if (roles.includes(roles.toString())) {
+      //   // accessedRoutes = asyncRoutes || []
+      //   accessedRoutes = filterAsyncRoutes(asyncRoutes, roles)
+      // } else {
+      //   // 否则只包含过滤后的路由
+      //   accessedRoutes = filterAsyncRoutes(asyncRoutes, roles)
+      // }
+      const accessedRoutes = filterAsyncRoutes(asyncRoutes, roles)
 
       commit('SET_ROUTES', accessedRoutes)
       resolve(accessedRoutes)

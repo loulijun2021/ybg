@@ -80,10 +80,11 @@ const actions = {
   logout({ commit, state }) {
     return new Promise((resolve, reject) => {
       logout(state.token).then(() => {
-        removeToken() // must remove  token  first
-        resetRouter()
+        commit('SET_TOKEN', '')
         commit('RESET_STATE')
         commit('SET_ROLES', [])
+        removeToken() // must remove  token  first
+        resetRouter()
         resolve()
       }).catch(error => {
         reject(error)

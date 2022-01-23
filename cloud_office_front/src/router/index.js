@@ -77,84 +77,18 @@ export const asyncRoutes = [
   {
     path: '/apply',
     component: Layout,
+    meta: { title: '员工申请', icon: '', roles: ['0'] },
     children: [
       {
         path: 'index',
-        name: '员工申请',
+        name: '申请请假',
         component: () => import('@/views/apply/index'),
-        meta: { title: '员工申请', icon: '', roles: ['1'] }
-      }
-    ]
-  },
-  {
-    path: '/journal',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        name: '员工日志',
-        component: () => import('@/views/journal/index'),
-        meta: { title: '员工日志', icon: '', roles: ['0', '1'] }
-      }
-    ]
-  },
-  {
-    path: '/notice',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        name: '员工公告',
-        component: () => import('@/views/notice/index'),
-        meta: { title: '员工公告', icon: '', roles: ['0', '1'] }
-      }
-    ]
-  },
-
-  // 404 page must be placed at the end !!!
-  { path: '*', redirect: '/404', hidden: true }
-]
-
-export const userRoutes = [
-  {
-    path: '/',
-    component: Layout,
-    redirect: '/dashboard',
-    children: [{
-      path: 'dashboard',
-      name: 'Dashboard',
-      component: () => import('@/views/dashboard/index'),
-      meta: { title: 'Dashboard', icon: 'dashboard' }
-    }]
-  },
-  {
-    path: '/clock',
-    component: Layout,
-    redirect: '/clock/index',
-    meta: { title: '员工打卡', icon: '' },
-    children: [
-      {
-        path: 'index',
-        name: '上班打卡',
-        component: () => import('@/views/clock/index'),
-        meta: { title: '上班打卡', icon: '' }
+        meta: { title: '申请请假', icon: '', roles: ['0'] }
       }, {
         path: 'index2',
-        name: '下班打卡',
-        component: () => import('@/views/clock/index2'),
-        meta: { title: '下班打卡', icon: '' }
-      }
-    ]
-  },
-  {
-    path: '/apply',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        name: '员工申请',
-        component: () => import('@/views/apply/index'),
-        meta: { title: '员工申请', icon: '' }
+        name: '申请出差',
+        component: () => import('@/views/apply/index2'),
+        meta: { title: '申请出差', icon: '', roles: ['0'] }
       }
     ]
   },
@@ -166,7 +100,7 @@ export const userRoutes = [
         path: 'index',
         name: '员工日志',
         component: () => import('@/views/journal/index'),
-        meta: { title: '员工日志', icon: '' }
+        meta: { title: '员工日志', icon: '', roles: ['0'] }
       }
     ]
   },
@@ -178,79 +112,58 @@ export const userRoutes = [
         path: 'index',
         name: '员工公告',
         component: () => import('@/views/notice/index'),
-        meta: { title: '员工公告', icon: '' }
+        meta: { title: '员工公告', icon: '', roles: ['0'] }
       }
     ]
-  },
-
-  // 404 page must be placed at the end !!!
-  { path: '*', redirect: '/404', hidden: true }
-]
-
-export const adminRoutes = [
-  {
-    path: '/',
+  }, {
+    path: '/staffManage',
     component: Layout,
-    redirect: '/dashboard',
-    children: [{
-      path: 'dashboard',
-      name: 'Dashboard',
-      component: () => import('@/views/dashboard/index'),
-      meta: { title: 'Dashboard', icon: 'dashboard' }
-    }]
-  },
-  {
-    path: '/clock',
-    component: Layout,
-    redirect: '/clock/index',
-    meta: { title: 'admin打卡', icon: '' },
+    meta: { title: '员工管理', icon: '', roles: ['1'] },
     children: [
       {
         path: 'index',
-        name: '上班打卡',
-        component: () => import('@/views/clock/index'),
-        meta: { title: '上班打卡', icon: '' }
+        name: '基本信息',
+        component: () => import('@/views/staffManage/index'),
+        meta: { title: '基本信息', icon: '', roles: ['1'] }
       }, {
         path: 'index2',
-        name: '下班打卡',
-        component: () => import('@/views/clock/index2'),
-        meta: { title: '下班打卡', icon: '' }
+        name: '审批申请',
+        component: () => import('@/views/staffManage/index2'),
+        meta: { title: '审批申请', icon: '', roles: ['1'] }
       }
     ]
-  },
-  {
-    path: '/apply',
+  }, {
+    path: '/journalManage',
     component: Layout,
     children: [
       {
         path: 'index',
-        name: '员工申请',
-        component: () => import('@/views/apply/index'),
-        meta: { title: '员工申请', icon: '' }
+        name: '日志管理',
+        component: () => import('@/views/journalManage/index'),
+        meta: { title: '日志管理', icon: '', roles: ['1'] }
       }
     ]
-  },
-  {
-    path: '/journal',
+  }, {
+    path: '/noticeManage',
     component: Layout,
     children: [
       {
         path: 'index',
-        name: '员工日志',
-        component: () => import('@/views/journal/index'),
-        meta: { title: '员工日志', icon: '' }
+        name: '公告管理',
+        component: () => import('@/views/noticeManage/index'),
+        meta: { title: '公告管理', icon: '', roles: ['1'] }
       }
     ]
   },
   {
-    path: '/notice',
+    path: '/statistics',
     component: Layout,
     children: [
       {
         path: 'index',
-        name: '员工公告',
-        component: () => import('@/views/notice/index'),
-        meta: { title: '员工公告', icon: '' }
+        name: '数据统计',
+        component: () => import('@/views/statistics/index'),
+        meta: { title: '数据统计', icon: '', roles: ['1'] }
       }
     ]
   },
