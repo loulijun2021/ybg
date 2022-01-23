@@ -6,17 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="3a3bfb97-c0ce-4dcd-b371-120fd6850a9f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/common/TokenInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/common/TokenInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/controller/UserInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/controller/UserInfoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/lou/cloud_office_back/common/TokenInterceptor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/lou/cloud_office_back/config/SecurityConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/lou/cloud_office_back/controller/UserInfoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lou/cloud_office_back/controller/UserInfoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/mapper/UserInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/mapper/UserInfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/service/impl/UserInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/service/impl/UserInfoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lou/cloud_office_back/mapper/UserInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lou/cloud_office_back/mapper/UserInfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lou/cloud_office_back/service/impl/UserInfoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lou/cloud_office_back/service/impl/UserInfoServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud_office_front/src/api/clock.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cloud_office_front/src/api/clock.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud_office_front/src/api/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cloud_office_front/src/api/user.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cloud_office_front/src/components/Breadcrumb/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../cloud_office_front/src/components/Breadcrumb/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cloud_office_front/src/layout/components/Navbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../cloud_office_front/src/layout/components/Navbar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cloud_office_front/src/permission.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cloud_office_front/src/permission.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cloud_office_front/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cloud_office_front/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cloud_office_front/src/views/login/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../cloud_office_front/src/views/login/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +22,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
+        <option value="spring-beans.schema" />
         <option value="Class" />
+        <option value="Interface" />
+        <option value="FxmlFile" />
+        <option value="Tag Library Descriptor" />
       </list>
     </option>
   </component>
@@ -43,7 +42,9 @@
     </file-type-list>
   </component>
   <component name="ProjectId" id="23rZobNhTsTufLPEpPHFL3i0piw" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -77,6 +78,17 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CloudOfficeBackApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="cloud_office_back" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.lou.cloud_office_back.CloudOfficeBackApplication" />
@@ -109,7 +121,7 @@
       <workItem from="1642736108117" duration="15756000" />
       <workItem from="1642768861478" duration="4289000" />
       <workItem from="1642911185320" duration="1678000" />
-      <workItem from="1642914596303" duration="4809000" />
+      <workItem from="1642914596303" duration="13421000" />
     </task>
     <servers />
   </component>

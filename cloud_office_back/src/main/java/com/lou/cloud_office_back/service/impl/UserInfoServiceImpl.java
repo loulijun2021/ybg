@@ -55,7 +55,7 @@ public class UserInfoServiceImpl implements UserInfoService {
         PageInfo<User> pageInfo = new PageInfo<>(list);
         template.setData(pageInfo);
         template.setCode(20000);
-        template.setMessage("显示所有");
+        template.setMessage("success");
         return template;
 
     }

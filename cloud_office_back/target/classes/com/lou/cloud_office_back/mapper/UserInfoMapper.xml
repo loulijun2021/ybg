@@ -3,7 +3,8 @@
 <mapper namespace="com.lou.cloud_office_back.mapper.UserInfoMapper">
 
     <resultMap id="BaseResultMap" type="com.lou.cloud_office_back.entity.User">
-        <result column="name" property="username"></result>
+<!--        <id column="id" jdbcType="INTEGER" property="id" />-->
+        <result column="name" jdbcType="VARCHAR" property="username"></result>
 <!--        <id column="ID" jdbcType="BIGINT" property="id" />-->
 <!--        <result column="NAME" jdbcType="VARCHAR" property="name" />-->
 <!--        <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />-->
@@ -12,10 +13,10 @@
 <!--        <result column="END_TIME" jdbcType="TIMESTAMP" property="endTime" />-->
     </resultMap>
 <!--    <select id="queryAll" resultType="com.lou.cloud_office_back.entity.User" >-->
-    <select id="getUserInfoAll"  resultType="com.lou.cloud_office_back.entity.User">
-
-    SELECT u.name,u.`password`,u.role,d.name dept
-    from t_user u left join t_dept d
+<!--    <select id="getUserInfoAll"  resultType="com.lou.cloud_office_back.entity.User">-->
+    <select id="getUserInfoAll"  resultMap="BaseResultMap">
+        SELECT u.id,u.name,u.`password`,u.role,d.name dept
+        from t_user u left join t_dept d
     on u.dept = d.id
     where u.name like concat(concat('%',#{keyword}),'%')
     </select>

@@ -38,3 +38,10 @@ export function register(data) {
     data
   })
 }
+export function getUserInfoAll(data) {
+  return request({
+    url: '/user/getUserInfoAll',
+    method: 'get',
+    params: data
+  })
+}

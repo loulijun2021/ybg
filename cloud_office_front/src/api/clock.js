@@ -16,14 +16,6 @@ export function singOut(data) {
   })
 }
 
-export function getUserInfoAll(data) {
-  return request({
-    url: '/user/getUserInfoAll',
-    method: 'get',
-    params: data
-  })
-}
-
 export function insertUserInfo(data) {
   return request({
     url: '/user/insertUserInfo',
