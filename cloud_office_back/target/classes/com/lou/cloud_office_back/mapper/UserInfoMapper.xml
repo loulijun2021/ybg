@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lou.cloud_office_back.mapper.UserInfoMapper">
+
+    <resultMap id="BaseResultMap" type="com.lou.cloud_office_back.entity.User">
+        <result column="name" property="username"></result>
+<!--        <id column="ID" jdbcType="BIGINT" property="id" />-->
+<!--        <result column="NAME" jdbcType="VARCHAR" property="name" />-->
+<!--        <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />-->
+<!--        <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />-->
+<!--        <result column="START_TIME" jdbcType="TIMESTAMP" property="startTime" />-->
+<!--        <result column="END_TIME" jdbcType="TIMESTAMP" property="endTime" />-->
+    </resultMap>
+<!--    <select id="queryAll" resultType="com.lou.cloud_office_back.entity.User" >-->
+    <select id="getUserInfoAll"  resultType="com.lou.cloud_office_back.entity.User">
+
+    SELECT u.name,u.`password`,u.role,d.name dept
+    from t_user u left join t_dept d
+    on u.dept = d.id
+    where u.name like concat(concat('%',#{keyword}),'%')
+    </select>
+
+    <select id="queryUserInfo" resultMap="BaseResultMap">
+        select * from t_user
+        where name = #{username,jdbcType=VARCHAR}
+        and password = #{password,jdbcType=VARCHAR}
+    </select>
+
+
+    <insert id="addUser" parameterType="com.lou.cloud_office_back.entity.User">
+        INSERT INTO t_user(name,`password`,role,dept)
+        VALUES(#{username,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR},0,NULL)
+    </insert>
+
+    <insert id="insertUserInfo" parameterType="com.lou.cloud_office_back.entity.User">
+        INSERT INTO t_user(name,`password`,role,dept)
+        VALUES(#{username,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR},#{role,jdbcType=INTEGER},#{dept,jdbcType=INTEGER})
+    </insert>
+
+    <delete id="deleteUserInfo">
+        DELETE FROM t_user WHERE id IN 
+        <foreach collection="array" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <update id="updateUserInfo">
+        UPDATE t_user
+        SET name=#{username,jdbcType=VARCHAR},`password`=#{password,jdbcType=VARCHAR},role=#{role,jdbcType=INTEGER},dept=#{dept,jdbcType=INTEGER}
+        WHERE id=#{id,jdbcType=INTEGER}
+    </update>
+</mapper>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lou.cloud_office_back.mapper.ClockInfoMapper">
+
+    <resultMap id="BaseResultMap" type="com.lou.cloud_office_back.entity.ClockInfo">
+        <result column="leave_out" property="leave"></result>
+        <result column="go_out" property="goOut"></result>
+<!--        <result column="other" property="other"></result>-->
+        <!--        <id column="ID" jdbcType="BIGINT" property="id" />-->
+        <!--        <result column="NAME" jdbcType="VARCHAR" property="name" />-->
+        <!--        <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />-->
+        <!--        <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />-->
+        <!--        <result column="START_TIME" jdbcType="TIMESTAMP" property="startTime" />-->
+        <!--        <result column="END_TIME" jdbcType="TIMESTAMP" property="endTime" />-->
+    </resultMap>
+    <select id="queryAll" resultType="com.lou.cloud_office_back.entity.ClockInfo">
+        select u.name,wd.start,wd.end,wd.leave_out,wd.go_out,wd.other
+        FROM t_work_detail wd LEFT JOIN t_user u on wd.name = u.id
+    </select>
+<!--    select * from t_work_detail-->
+<!--    where to_days(start)=to_days(now())-->
+<!--    and name = #{name,jdbcType=VARCHAR}-->
+    <select id="selectClock" parameterType="com.lou.cloud_office_back.entity.ClockInfo" resultType="com.lou.cloud_office_back.entity.ClockInfo">
+        select * from t_work_detail W
+        where SUBSTR(W.start,1,11)= SUBSTR(now(),1,11)	AND w.name=#{name,jdbcType=VARCHAR}
+    </select>
+
+    <insert id="singIn" parameterType="com.lou.cloud_office_back.entity.ClockInfo">
+        INSERT t_work_detail(name,start)
+        VALUES((SELECT  id FROM t_user
+        WHERE name=(#{name,jdbcType=VARCHAR})),NOW())
+    </insert>
+
+    <update id="singOut" parameterType="com.lou.cloud_office_back.entity.ClockInfo">
+        UPDATE t_work_detail W SET `end`=NOW()
+        where SUBSTR(W.start,1,11)= SUBSTR(now(),1,11)	AND w.name=#{name,jdbcType=VARCHAR}
+    </update>
+<!--    UPDATE t_work_detail SET end=NOW()-->
+<!--    where to_days(start)=to_days(now())-->
+<!--    and name = #{name,jdbcType=VARCHAR}-->
+    <insert id="addLeave" parameterType="com.lou.cloud_office_back.entity.ClockInfo">
+        insert into t_work_detail(name,start,leave_out,other)
+        values (#{name,jdbcType=VARCHAR},NOW(),1,#{other,jdbcType=VARCHAR})
+    </insert>
+
+    <insert id="addGoOut" parameterType="com.lou.cloud_office_back.entity.ClockInfo">
+        insert into t_work_detail(name,start,go_out,other)
+        values (#{name,jdbcType=VARCHAR},now(),1,#{other,jdbcType=VARCHAR})
+    </insert>
+
+
+</mapper>
