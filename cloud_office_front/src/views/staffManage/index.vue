@@ -39,7 +39,7 @@
             <el-button-group>
               <el-button style="margin-left: 10px" type="text" @click="editClick('编辑',row)">编辑</el-button>
               <el-button style="margin-left: 10px" type="text" @click="deleteClick(row.id)">删除</el-button>
-              <el-button style="margin-left: 10px" type="text" @click="deleteClick(row.id)">重置密码</el-button>
+              <el-button style="margin-left: 10px" type="text" @click="resetClick(row.id)">重置密码</el-button>
             </el-button-group>
           </template>
         </el-table-column>
@@ -62,21 +62,24 @@
     >
       <el-form ref="form" :model="form" label-width="80px">
         <el-form-item label="姓名">
-          <el-input v-model="form.name" style="width: 205px" />
+          <el-input v-model="form.name" :disabled="isDisable" style="width: 205px" />
         </el-form-item>
         <!--        <el-form-item label="密码">-->
         <!--          <el-input v-model="form.password" style="width: 205px" />-->
         <!--        </el-form-item>-->
         <el-form-item label="角色">
-          <el-input v-model="form.role" style="width: 205px" />
+          <el-radio-group v-model="form.role" @change="roleChange">
+            <el-radio label="0">员工</el-radio>
+            <el-radio label="1">管理员</el-radio>
+          </el-radio-group>
         </el-form-item>
         <el-form-item label="部门">
-          <el-select v-model="form.dept" placeholder="请选择" style="width: 205px">
+          <el-select v-model="form.dept" placeholder="请选择" style="width: 205px" @change="deptChange">
             <el-option
               v-for="item in depts"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
+              :key="item.id"
+              :label="item.name"
+              :value="item.id"
             />
           </el-select>
         </el-form-item>
@@ -91,7 +94,7 @@
 
 <script>
 import Pagination from '@/components/Pagination' // secondary package based on el-pagination
-import { getUserInfoAll } from '@/api/user'
+import { deleteUserInfo, getDeptAll, getUserInfoAll, insertUserInfo, resetPassword, updateUserInfo } from '@/api/user'
 
 export default {
 
@@ -117,12 +120,16 @@ export default {
         role: '',
         dept: ''
       },
-      depts: []
+      depts: [],
+      editId: 0,
+      isDisable: false,
+      arrId: []
     }
   },
   created() {
     this.getHeight()
     this.getTableData()
+    this.getDeptAll()
   },
   mounted() {
     window.addEventListener('resize', this.getHeight)
@@ -145,30 +152,98 @@ export default {
       this.tableData = res.list
       this.total = res.total
     },
+    async getDeptAll() {
+      const { data: res } = await getDeptAll()
+      this.depts = res
+    },
     handleSelectionChange(val) {
+      this.arrId = []
       this.multipleSelection = val
+      for (const valElement of val) {
+        this.arrId.push(valElement.id)
+      }
+    },
+    roleChange(a) {
+      this.form.role = a
     },
     addClick(op) {
+      this.form = {}
       this.dialogVisible = true
       this.title = op
     },
     editClick(op, row) {
-
+      // this.isDisable = true
+      this.dialogVisible = true
+      this.title = op
+      this.form.name = row.username
+      this.form.role = row.role.toString()
+      this.form.dept = row.deptId
+      this.editId = row.id
     },
-    deleteClick(id) {
-
+    deptChange(val) {
+      this.form.dept = val
     },
-    batchDeleteClick() {
-
+    async deleteClick(id) {
+      const res = await deleteUserInfo({ id })
+      if (res.code === 20000) {
+        this.$message.success('删除成功！')
+      }
+      await this.getTableData()
     },
-    batchResetClick() {
-
+    async batchDeleteClick() {
+      const res = await deleteUserInfo({ id: this.arrId.join(',') })
+      if (res.code === 20000) {
+        this.$message.success('批量删除成功！')
+      }
+      await this.getTableData()
+    },
+    async resetClick(id) {
+      const res = await resetPassword({ id })
+      if (res.code === 20000) {
+        this.$message.success('密码重置成功！')
+      }
+      await this.getTableData()
+    },
+    async batchResetClick() {
+      const res = await resetPassword({ id: this.arrId.join(',') })
+      if (res.code === 20000) {
+        this.$message.success('批量重置成功！')
+      }
+      await this.getTableData()
     },
     dialogVisibleCancel() {
       this.dialogVisible = false
     },
-    dialogVisibleConfirm() {
-      this.dialogVisible = false
+    async dialogVisibleConfirm() {
+      if (this.form.name !== undefined && this.form.role !== undefined && this.form.dept !== undefined) {
+        if (this.title === '添加') {
+          const data = {
+            username: this.form.name,
+            role: this.form.role,
+            dept: this.form.dept
+          }
+          const res = await insertUserInfo(data)
+          if (res.code === 20000) {
+            this.$message.success('添加成功！')
+          }
+        }
+        if (this.title === '编辑') {
+          const data = {
+            id: this.editId,
+            role: this.form.role,
+            dept: this.form.dept
+          }
+          const res = await updateUserInfo(data)
+          if (res.code === 20000) {
+            this.$message.success('修改成功！')
+          }
+          // this.isDisable = false
+        }
+        await this.getTableData()
+        this.dialogVisible = false
+      } else {
+        this.$message.warning('信息未填写完整！')
+      }
     }
   }
 }

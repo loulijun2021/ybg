@@ -23,5 +23,9 @@ public interface UserInfoMapper {
 
     int deleteUserInfo(int[] id);
 
+    int resetPassword(int[] id);
+
     int updateUserInfo(User user);
+
+    int passwordChange(User user);
 }

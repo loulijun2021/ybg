@@ -6,13 +6,24 @@
   <component name="ChangeListManager">
     <list default="true" id="3a3bfb97-c0ce-4dcd-b371-120fd6850a9f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud_office_back.iml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud_office_back.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/controller/UserInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/controller/UserInfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/mapper/UserInfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/mapper/UserInfoMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/mapper/UserInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/mapper/UserInfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/service/UserInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/service/UserInfoService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/service/impl/UserInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/service/impl/UserInfoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lou/cloud_office_back/controller/UserInfoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lou/cloud_office_back/controller/UserInfoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lou/cloud_office_back/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lou/cloud_office_back/entity/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lou/cloud_office_back/mapper/UserInfoMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lou/cloud_office_back/mapper/UserInfoMapper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/lou/cloud_office_back/mapper/UserInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lou/cloud_office_back/mapper/UserInfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lou/cloud_office_back/service/UserInfoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lou/cloud_office_back/service/UserInfoService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/lou/cloud_office_back/service/impl/UserInfoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lou/cloud_office_back/service/impl/UserInfoServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cloud_office_front/src/api/clock.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cloud_office_front/src/api/clock.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cloud_office_front/src/api/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cloud_office_front/src/api/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cloud_office_front/src/components/Breadcrumb/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../cloud_office_front/src/components/Breadcrumb/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud_office_front/src/views/login/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../cloud_office_front/src/views/login/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud_office_front/src/views/staffManage/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../cloud_office_front/src/views/staffManage/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,18 +84,21 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.lou.cloud_office_back.utils" />
       <recent name="com.lou.cloud_office_back.common" />
       <recent name="com.lou.cloud_office_back.config" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -121,11 +135,23 @@
       <workItem from="1642736108117" duration="15756000" />
       <workItem from="1642768861478" duration="4289000" />
       <workItem from="1642911185320" duration="1678000" />
-      <workItem from="1642914596303" duration="13421000" />
+      <workItem from="1642914596303" duration="13453000" />
+      <workItem from="1642986879805" duration="10500000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

@@ -45,8 +45,8 @@ export const constantRoutes = [
   {
     path: '/',
     component: Layout,
-    redirect: '/dashboard',
-    // hidden: true,
+    redirect: '/clock/index',
+    hidden: true,
     children: [{
       path: 'dashboard',
       name: '首页',

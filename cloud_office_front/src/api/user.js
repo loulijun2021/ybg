@@ -45,3 +45,41 @@ export function getUserInfoAll(data) {
     params: data
   })
 }
+
+export function getDeptAll() {
+  return request({
+    url: '/dept/getDeptAll',
+    method: 'get'
+  })
+}
+
+export function insertUserInfo(data) {
+  return request({
+    url: '/user/insertUserInfo',
+    method: 'post',
+    data
+  })
+}
+
+export function deleteUserInfo(data) {
+  return request({
+    url: '/user/deleteUserInfo',
+    method: 'get',
+    params: data
+  })
+}
+export function resetPassword(data) {
+  return request({
+    url: '/user/resetPassword',
+    method: 'get',
+    params: data
+  })
+}
+
+export function passwordChange(data) {
+  return request({
+    url: '/user/passwordChange',
+    method: 'post',
+    data
+  })
+}

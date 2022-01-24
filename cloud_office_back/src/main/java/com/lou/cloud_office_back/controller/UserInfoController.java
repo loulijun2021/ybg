@@ -1,18 +1,26 @@
 package com.lou.cloud_office_back.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.lou.cloud_office_back.common.ResultTemplate;
 import com.lou.cloud_office_back.common.TokenUtil;
 import com.lou.cloud_office_back.entity.User;
+import com.lou.cloud_office_back.mapper.UserInfoMapper;
 import com.lou.cloud_office_back.service.UserInfoService;
+import com.lou.cloud_office_back.utils.SendResponseHeaderUtil;
 import org.apache.ibatis.annotations.Param;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.OutputStream;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -146,6 +154,20 @@ public class UserInfoController {
         }
         return ResponseEntity.ok().body(template);
     }
+    @RequestMapping("/resetPassword")
+    @ResponseBody
+    public ResponseEntity<Object> resetPassword(@Param("id") int[] id) {
+        ResultTemplate template=new ResultTemplate();
+        if(userInfoService.resetPassword(id)>0){
+            template.setMessage("success");
+//            template.setData(userInfoService.insertUserInfo(user));
+            template.setCode(20000);
+        }else {
+            template.setMessage("fail");
+            template.setCode(50000);
+        }
+        return ResponseEntity.ok().body(template);
+    }
     @RequestMapping("/updateUserInfo")
     @ResponseBody
     public ResponseEntity<Object> updateUserInfo(@RequestBody User user) {
@@ -160,6 +182,50 @@ public class UserInfoController {
         }
         return ResponseEntity.ok().body(template);
     }
+
+    @RequestMapping("/passwordChange")
+    @ResponseBody
+    public ResponseEntity<Object> passwordChange(@RequestBody User user) {
+        ResultTemplate template=new ResultTemplate();
+        if(userInfoService.passwordChange(user)>0){
+            template.setMessage("success");
+//            template.setData(userInfoService.insertUserInfo(user));
+            template.setCode(20000);
+        }else {
+            template.setMessage("原密码错误");
+            template.setCode(50000);
+        }
+        return ResponseEntity.ok().body(template);
+    }
+
+//    @PostMapping(path = "/download")
+//    public void download(@RequestBody(required = false) String json,
+//                         HttpServletResponse response){
+//        //获取数据
+//        JSONObject data = JSON.parseObject(json);
+//        String code = data.getString("code");
+//        String start = data.getString("start");
+//        String end = data.getString("end");
+////        System.out.println(code+" "+start+" "+end);
+//
+//        List<Map<String, Object>> maps = UserInfoService.getUserInfoAll("");
+//
+//
+//        //设置excel文件名
+//        String fileName = "表单.xls";
+//        HSSFWorkbook wb = ExcelUtil.getHSSFWorkbook(maps, null);
+//
+//        //响应到客户端
+//        try {
+//            SendResponseHeaderUtil.setResponseHeader(response, fileName);
+//            OutputStream os = response.getOutputStream();
+//            wb.write(os);
+//            os.flush();
+//            os.close();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 
 
 

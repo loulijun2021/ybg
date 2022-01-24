@@ -72,7 +72,17 @@ public class UserInfoServiceImpl implements UserInfoService {
     }
 
     @Override
+    public int resetPassword(int[] id) {
+        return userInfoMapper.resetPassword(id);
+    }
+
+    @Override
     public int updateUserInfo(User user) {
         return userInfoMapper.updateUserInfo(user);
+    }
+
+    @Override
+    public int passwordChange(User user){
+        return userInfoMapper.passwordChange(user);
     }
 }

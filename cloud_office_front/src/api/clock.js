@@ -16,24 +16,3 @@ export function singOut(data) {
   })
 }
 
-export function insertUserInfo(data) {
-  return request({
-    url: '/user/insertUserInfo',
-    method: 'post',
-    data
-  })
-}
-export function deleteUserInfo(data) {
-  return request({
-    url: '/user/deleteUserInfo',
-    method: 'get',
-    params: data
-  })
-}
-export function updateUserInfo(data) {
-  return request({
-    url: '/user/updateUserInfo',
-    method: 'post',
-    data
-  })
-}
