@@ -16,3 +16,11 @@ export function singOut(data) {
   })
 }
 
+export function getAttendanceAll(data) {
+  return request({
+    url: '/clock/getAttendanceAll',
+    method: 'get',
+    params: data
+  })
+}
+

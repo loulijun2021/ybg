@@ -129,9 +129,9 @@ export const asyncRoutes = [
         meta: { title: '基本信息', icon: '', roles: ['1'] }
       }, {
         path: 'index2',
-        name: '审批申请',
+        name: '考勤情况',
         component: () => import('@/views/staffManage/index2'),
-        meta: { title: '审批申请', icon: '', roles: ['1'] }
+        meta: { title: '考勤情况', icon: '', roles: ['1'] }
       }
     ]
   }, {

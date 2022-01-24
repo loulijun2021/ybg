@@ -1,5 +1,6 @@
 package com.lou.cloud_office_back.service;
 
+import com.lou.cloud_office_back.common.ResultTemplate;
 import com.lou.cloud_office_back.entity.ClockInfo;
 
 
@@ -9,6 +10,9 @@ import com.lou.cloud_office_back.entity.ClockInfo;
  * @Version 1.0
  */
 public interface ClockInfoService {
+//    ResultTemplate getAttendanceAll(int pageNum, int pageSize, String keyword, int dept,String date);
+    ResultTemplate getAttendanceAll(int pageNum, int pageSize, String keyword,String dept, String date);
+
     boolean singIn(ClockInfo clockInfo);
 
     int singOut(ClockInfo clockInfo);

@@ -1,6 +1,7 @@
 package com.lou.cloud_office_back.mapper;
 
 import com.lou.cloud_office_back.entity.ClockInfo;
+import com.lou.cloud_office_back.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -12,6 +13,9 @@ import java.util.List;
  */
 @Mapper
 public interface ClockInfoMapper {
+
+//    List<ClockInfo> getAttendanceAll(String keyword,int dept,String date);
+    List<ClockInfo> getAttendanceAll(String keyword,String dept,String date);
 
     List<ClockInfo> queryAll();
 

@@ -17,9 +17,18 @@
         select u.name,wd.start,wd.end,wd.leave_out,wd.go_out,wd.other
         FROM t_work_detail wd LEFT JOIN t_user u on wd.name = u.id
     </select>
-<!--    select * from t_work_detail-->
-<!--    where to_days(start)=to_days(now())-->
-<!--    and name = #{name,jdbcType=VARCHAR}-->
+    <select id="getAttendanceAll" resultMap="BaseResultMap">
+        select w.id,u.name,d.name dept,w.start,w.end,w.leave_out,w.go_out,w.other
+        from t_work_detail w
+                 left join t_user u on w.name = u.id
+                 left join t_dept d on u.dept=d.id
+        where u.name like concat(concat('%', #{keyword}), '%')
+          and SUBSTR(w.start,1,11) like concat(concat('%', #{date}), '%')
+          and  SUBSTR(w.end,1,11)  like concat(concat('%', #{date}), '%')
+          and d.id like concat(concat('%', #{dept}), '%')
+        order by w.id desc
+    </select>
+
     <select id="selectClock" parameterType="com.lou.cloud_office_back.entity.ClockInfo" resultType="com.lou.cloud_office_back.entity.ClockInfo">
         select * from t_work_detail W
         where SUBSTR(W.start,1,11)= SUBSTR(now(),1,11)	AND w.name=#{name,jdbcType=VARCHAR}

@@ -57,7 +57,6 @@ public class UserInfoServiceImpl implements UserInfoService {
         template.setCode(20000);
         template.setMessage("success");
         return template;
-
     }
 
 
