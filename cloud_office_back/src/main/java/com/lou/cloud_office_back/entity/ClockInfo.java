@@ -23,6 +23,7 @@ public class ClockInfo {
     private String other;//备注
 
     private String dept;
+    private String isApproved;
 //    private String date;
 
 }

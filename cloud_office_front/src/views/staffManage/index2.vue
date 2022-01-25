@@ -43,13 +43,41 @@
       >
         <el-table-column type="selection" />
         <el-table-column prop="name" label="姓名" />
-        <el-table-column prop="dept" label="姓名" />
-        <el-table-column prop="start" label="上班打卡" />
-        <el-table-column prop="end" label="下班打卡" />
-        <el-table-column prop="goOut" label="出差" />
-        <el-table-column prop="leave" label="请假" />
+        <el-table-column prop="dept" label="部门" />
+        <el-table-column label="日期">
+          <template slot-scope="{row}">
+            <div>{{ row.start.substring(0,11) }}</div>
+          </template>
+        </el-table-column>
+        <el-table-column prop="start" label="上班时间">
+          <template slot-scope="{row}">
+            <div>{{ row.start.substring(11) }}</div>
+          </template>
+        </el-table-column>
+        <el-table-column prop="end" label="下班时间">
+          <template slot-scope="{row}">
+            <div v-if="row.end">{{ row.end.substring(11) }}</div>
+          </template>
+        </el-table-column>
+        <el-table-column prop="goOut" label="出差">
+          <template slot-scope="{row}">
+            <div v-if="row.goOut===0">未出差</div>
+            <div v-if="row.goOut===1">已出差</div>
+          </template>
+        </el-table-column>
+        <el-table-column prop="leave" label="请假">
+          <template slot-scope="{row}">
+            <div v-if="row.leave===1">已请假</div>
+            <div v-if="row.leave===0">未请假</div>
+          </template>
+        </el-table-column>
         <el-table-column prop="other" label="原因" />
-        <el-table-column label="操作" />
+        <el-table-column label="操作">
+          <template slot-scope="{row}">
+            <div v-if="row.isApproved==='0'"><el-button type="text">未审批</el-button></div>
+            <div v-if="row.isApproved==='1'"><el-button type="text">已审批</el-button></div>
+          </template>
+        </el-table-column>
 
       </el-table>
       <!--分页-->
@@ -67,7 +95,8 @@
 
 <script>
 import { getAttendanceAll } from '@/api/clock'
-import Pagination from '@/components/Pagination' // secondary package based on el-pagination
+import Pagination from '@/components/Pagination'
+import { getDeptAll } from '@/api/user' // secondary package based on el-pagination
 
 export default {
   name: 'Index2',
@@ -93,6 +122,7 @@ export default {
   created() {
     this.getHeight()
     this.getTableData()
+    this.getDeptAll()
   },
   mounted() {
     window.addEventListener('resize', this.getHeight)
@@ -106,16 +136,35 @@ export default {
       })
     },
     async getTableData() {
+      let d
+      if (this.queryInfo.date === '' || this.queryInfo.date === null) {
+        d = ''
+      }
+      if (this.queryInfo.date !== '' && this.queryInfo.date !== null) {
+        d = this.handleDate(this.queryInfo.date.toString())
+      }
+
       const data = {
         pageNum: this.queryInfo.pageNum,
         pageSize: this.queryInfo.pageSize,
         keyword: this.queryInfo.query,
         dept: this.queryInfo.dept,
-        date: this.queryInfo.date
+        date: d
       }
       const { data: res } = await getAttendanceAll(data)
       this.tableData = res.list
       this.total = res.total
+    },
+    handleDate(date) {
+      const dt = new Date(date)
+      const y = dt.getFullYear()
+      const m = (dt.getMonth() + 1 + '').padStart(2, '0')
+      const d = (dt.getDate() + '').padStart(2, '0')
+      return `${y}-${m}-${d}`
+    },
+    async getDeptAll() {
+      const { data: res } = await getDeptAll()
+      this.depts = res
     },
     handleSelectionChange(val) {
       this.multipleSelection = val

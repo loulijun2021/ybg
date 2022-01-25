@@ -6,19 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3a3bfb97-c0ce-4dcd-b371-120fd6850a9f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/controller/ClockInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/controller/ClockInfoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/entity/ClockInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/entity/ClockInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/mapper/ClockInfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/mapper/ClockInfoMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/mapper/ClockInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/mapper/ClockInfoMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/service/ClockInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/service/ClockInfoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/service/impl/ClockInfoServiceIpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/service/impl/ClockInfoServiceIpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/service/impl/UserInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/service/impl/UserInfoServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/lou/cloud_office_back/controller/ClockInfoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lou/cloud_office_back/controller/ClockInfoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/lou/cloud_office_back/mapper/ClockInfoMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lou/cloud_office_back/mapper/ClockInfoMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/lou/cloud_office_back/service/impl/ClockInfoServiceIpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lou/cloud_office_back/service/impl/ClockInfoServiceIpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/lou/cloud_office_back/service/impl/UserInfoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lou/cloud_office_back/service/impl/UserInfoServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cloud_office_front/src/api/clock.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cloud_office_front/src/api/clock.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cloud_office_front/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cloud_office_front/src/router/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cloud_office_front/src/views/staffManage/index2.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../cloud_office_front/src/views/staffManage/index2.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -86,19 +75,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="CloudOfficeBackApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="cloud_office_back" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.lou.cloud_office_back.CloudOfficeBackApplication" />
@@ -133,6 +109,7 @@
       <workItem from="1642911185320" duration="1678000" />
       <workItem from="1642914596303" duration="13453000" />
       <workItem from="1642986879805" duration="17956000" />
+      <workItem from="1643073723682" duration="3231000" />
     </task>
     <servers />
   </component>
@@ -149,5 +126,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

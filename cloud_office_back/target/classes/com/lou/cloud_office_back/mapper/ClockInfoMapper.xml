@@ -18,13 +18,13 @@
         FROM t_work_detail wd LEFT JOIN t_user u on wd.name = u.id
     </select>
     <select id="getAttendanceAll" resultMap="BaseResultMap">
-        select w.id,u.name,d.name dept,w.start,w.end,w.leave_out,w.go_out,w.other
+        select w.id,u.name,d.name dept,w.start,w.end,w.leave_out,w.go_out,w.other,w.isApproved
         from t_work_detail w
                  left join t_user u on w.name = u.id
                  left join t_dept d on u.dept=d.id
         where u.name like concat(concat('%', #{keyword}), '%')
-          and SUBSTR(w.start,1,11) like concat(concat('%', #{date}), '%')
-          and  SUBSTR(w.end,1,11)  like concat(concat('%', #{date}), '%')
+          and (SUBSTR(w.start,1,11) like concat(concat('%', #{date}), '%')
+          or  SUBSTR(w.end,1,11)  like concat(concat('%', #{date}), '%'))
           and d.id like concat(concat('%', #{dept}), '%')
         order by w.id desc
     </select>
@@ -35,9 +35,9 @@
     </select>
 
     <insert id="singIn" parameterType="com.lou.cloud_office_back.entity.ClockInfo">
-        INSERT t_work_detail(name,start)
+        INSERT t_work_detail(name,start,leave_out,go_out)
         VALUES((SELECT  id FROM t_user
-        WHERE name=(#{name,jdbcType=VARCHAR})),NOW())
+        WHERE name=(#{name,jdbcType=VARCHAR})),NOW(),0,0)
     </insert>
 
     <update id="singOut" parameterType="com.lou.cloud_office_back.entity.ClockInfo">
