@@ -12,6 +12,7 @@ import com.lou.cloud_office_back.entity.ClockInfo;
 public interface ClockInfoService {
 //    ResultTemplate getAttendanceAll(int pageNum, int pageSize, String keyword, int dept,String date);
     ResultTemplate getAttendanceAll(int pageNum, int pageSize, String keyword,String dept, String date);
+    ResultTemplate getLeaveHistory(ClockInfo clockInfo);
 
     boolean singIn(ClockInfo clockInfo);
 
@@ -19,5 +20,8 @@ public interface ClockInfoService {
 
     int addLeave(ClockInfo clockInfo);
 
+    int isApprove(ClockInfo clockInfo);
+
     int addGoOut(ClockInfo clockInfo);
+
 }

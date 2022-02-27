@@ -40,6 +40,22 @@ public class ClockInfoServiceIpl implements ClockInfoService {
     }
 
     @Override
+    public ResultTemplate getLeaveHistory(ClockInfo clockInfo) {
+//    public ResultTemplate getAttendanceAll(int pageNum, int pageSize, String keyword, int dept, String date) {
+
+        ResultTemplate template = new ResultTemplate();
+
+//        PageHelper.startPage();
+        List<ClockInfo> list = clockInfoMapper.getLeaveHistory(clockInfo);
+//        PageInfo<ClockInfo> pageInfo = new PageInfo<>(list);
+        template.setData(list);
+        template.setCode(20000);
+        template.setMessage("success");
+        return template;
+
+    }
+
+    @Override
     public boolean singIn(ClockInfo clockInfo) {
         List<ClockInfo> clockInfos = clockInfoMapper.selectClock(clockInfo);
         if (clockInfos.size() > 0) {
@@ -86,6 +102,16 @@ public class ClockInfoServiceIpl implements ClockInfoService {
             return clockInfoMapper.addLeave(clockInfo);
         }
     }
+    @Override
+    public int isApprove(ClockInfo clockInfo) {
+        List<ClockInfo> clockInfos = clockInfoMapper.selectClock(clockInfo);
+        if (clockInfos.size() > 0) {
+            return -1;
+        } else {
+            return clockInfoMapper.isApprove(clockInfo);
+        }
+    }
+
 
     @Override
     public int addGoOut(ClockInfo clockInfo) {

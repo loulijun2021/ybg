@@ -61,7 +61,7 @@ public class ClockInfoController {
         return result;
     }
 
-
+    //申请请假
     @PostMapping("/leave")
     public ResultTemplate leave(@RequestBody ClockInfo clockInfo) {
         ResultTemplate<Object> result = new ResultTemplate<>();
@@ -81,6 +81,36 @@ public class ClockInfoController {
             result.setCode(50000);
         }
         return result;
+    }
+
+//审批请假
+    @PostMapping("/isApprove")
+    public ResultTemplate isApprove(@RequestBody ClockInfo clockInfo) {
+        ResultTemplate<Object> result = new ResultTemplate<>();
+
+        int i = clockInfoService.isApprove(clockInfo);
+        if (i > 0) {
+            result.setCode(20000);
+            result.setMessage("success");
+            result.setData("登记成功");
+        } else if (i == 0) {
+            result.setMessage("false");
+            result.setData("请假失败！！");
+            result.setCode(50000);
+        } else if (i == -1) {
+            result.setMessage("false");
+            result.setData("今天已经记录，请不要重复申请！！");
+            result.setCode(50000);
+        }
+        return result;
+    }
+    //获取个人请假历史信息
+    @RequestMapping("/getLeaveHistory")
+    @ResponseBody
+    public ResultTemplate getLeaveHistory(@RequestBody ClockInfo clockInfo) {
+
+        ResultTemplate template=clockInfoService.getLeaveHistory(clockInfo);
+        return template;
     }
 
     @PostMapping("/goOut")

@@ -48,14 +48,24 @@
 <!--    where to_days(start)=to_days(now())-->
 <!--    and name = #{name,jdbcType=VARCHAR}-->
     <insert id="addLeave" parameterType="com.lou.cloud_office_back.entity.ClockInfo">
-        insert into t_work_detail(name,start,leave_out,other)
-        values (#{name,jdbcType=VARCHAR},NOW(),1,#{other,jdbcType=VARCHAR})
+        insert into t_work_detail(name,start,leave_out,other,isApproved)
+        values (#{name,jdbcType=VARCHAR},#{start,jdbcType=VARCHAR},1,#{other,jdbcType=VARCHAR},0)
     </insert>
 
+    <select id="getLeaveHistory" resultMap="BaseResultMap">
+        select w.id,u.name,w.start,w.other,w.isApproved
+        from t_work_detail w
+                 left join t_user u on w.name=u.id
+        where u.name=#{name,jdbcType=VARCHAR} and SUBSTR(w.start,12,21)='00:00:00'
+    </select>
     <insert id="addGoOut" parameterType="com.lou.cloud_office_back.entity.ClockInfo">
-        insert into t_work_detail(name,start,go_out,other)
-        values (#{name,jdbcType=VARCHAR},now(),1,#{other,jdbcType=VARCHAR})
+        insert into t_work_detail(name,start,go_out,other,isApproved)
+        values (#{name,jdbcType=VARCHAR},#{start,jdbcType=VARCHAR},1,#{other,jdbcType=VARCHAR},0)
     </insert>
+    <update id="isApprove" parameterType="com.lou.cloud_office_back.entity.ClockInfo">
+        UPDATE t_work_detail SET isApproved=#{isApproved,jdbcType=VARCHAR}
+        where  id=#{id,jdbcType=INTEGER }
+    </update>
 
 
 </mapper>

@@ -24,3 +24,27 @@ export function getAttendanceAll(data) {
   })
 }
 
+export function leave(data) {
+  return request({
+    url: '/clock/leave',
+    method: 'post',
+    data
+  })
+}
+
+export function isApprove(data) {
+  return request({
+    url: '/clock/isApprove',
+    method: 'post',
+    data
+  })
+}
+
+export function getLeaveHistory(data) {
+  return request({
+    url: '/clock/getLeaveHistory',
+    method: 'post',
+    data
+  })
+}
+

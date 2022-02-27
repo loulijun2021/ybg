@@ -83,3 +83,10 @@ export function passwordChange(data) {
     data
   })
 }
+export function updateUserInfo(data) {
+  return request({
+    url: '/user/updateUserInfo',
+    method: 'post',
+    data
+  })
+}

@@ -62,7 +62,7 @@
     >
       <el-form ref="form" :model="form" label-width="80px">
         <el-form-item label="姓名">
-          <el-input v-model="form.name" :disabled="isDisable" style="width: 205px" />
+          <el-input v-model="form.name" :disabled="title==='编辑'" style="width: 205px" />
         </el-form-item>
         <!--        <el-form-item label="密码">-->
         <!--          <el-input v-model="form.password" style="width: 205px" />-->
@@ -172,6 +172,7 @@ export default {
       this.title = op
     },
     editClick(op, row) {
+      console.log(row)
       // this.isDisable = true
       this.dialogVisible = true
       this.title = op
@@ -191,6 +192,9 @@ export default {
       await this.getTableData()
     },
     async batchDeleteClick() {
+      if (this.arrId.length <= 0) {
+        return this.$message.error('请至少选择一个')
+      }
       const res = await deleteUserInfo({ id: this.arrId.join(',') })
       if (res.code === 20000) {
         this.$message.success('批量删除成功！')
@@ -205,6 +209,9 @@ export default {
       await this.getTableData()
     },
     async batchResetClick() {
+      if (this.arrId.length <= 0) {
+        return this.$message.error('请至少选择一个')
+      }
       const res = await resetPassword({ id: this.arrId.join(',') })
       if (res.code === 20000) {
         this.$message.success('批量重置成功！')

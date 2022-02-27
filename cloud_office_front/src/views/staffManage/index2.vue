@@ -51,7 +51,7 @@
         </el-table-column>
         <el-table-column prop="start" label="上班时间">
           <template slot-scope="{row}">
-            <div>{{ row.start.substring(11) }}</div>
+            <div v-if="row.start.substring(11)!=='00:00:00'">{{ row.start.substring(11) }}</div>
           </template>
         </el-table-column>
         <el-table-column prop="end" label="下班时间">
@@ -74,8 +74,9 @@
         <el-table-column prop="other" label="原因" />
         <el-table-column label="操作">
           <template slot-scope="{row}">
-            <div v-if="row.isApproved==='0'"><el-button type="text">未审批</el-button></div>
-            <div v-if="row.isApproved==='1'"><el-button type="text">已审批</el-button></div>
+            <div v-if="row.isApproved==='0'"><el-button type="text" @click="approveClick(row.id)">未审批</el-button></div>
+            <div v-if="row.isApproved==='1'">已通过</div>
+            <div v-if="row.isApproved==='2'">已拒绝</div>
           </template>
         </el-table-column>
 
@@ -90,13 +91,30 @@
         @pagination="getTableData"
       />
     </el-card>
+
+    <el-dialog
+      title="审批"
+      :visible.sync="dialogVisible"
+      width="30%"
+      @closed="radio=''"
+    >
+      <el-radio-group v-model="radio">
+        <el-radio :label="'1'">通过</el-radio>
+        <el-radio :label="'2'">拒绝</el-radio>
+      </el-radio-group>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="dialogVisible=false">取 消</el-button>
+        <el-button type="primary" @click="dialogVisibleConfirm">确 定</el-button>
+      </span>
+    </el-dialog>
   </div>
 </template>
 
 <script>
-import { getAttendanceAll } from '@/api/clock'
+import { getAttendanceAll, isApprove } from '@/api/clock'
 import Pagination from '@/components/Pagination'
-import { getDeptAll } from '@/api/user' // secondary package based on el-pagination
+import { getDeptAll } from '@/api/user'
+import { getId } from '@/utils/auth' // secondary package based on el-pagination
 
 export default {
   name: 'Index2',
@@ -115,8 +133,10 @@ export default {
         pageSize: 5 // 当前每页显示多少条数据
       },
       total: 10,
-      depts: []
-
+      depts: [],
+      dialogVisible: false,
+      radio: '',
+      thisId: 0
     }
   },
   created() {
@@ -129,6 +149,22 @@ export default {
     this.getHeight()
   },
   methods: {
+    approveClick(id) {
+      this.thisId = id
+      this.dialogVisible = true
+    },
+    dialogVisibleConfirm() {
+      const data = {
+        id: this.thisId,
+        isApproved: this.radio
+      }
+      isApprove(data).then(() => {
+        setTimeout(() => {
+          this.getTableData()
+        }, 100)
+      })
+      this.dialogVisible = false
+    },
     getHeight() {
       this.$nextTick(() => {
         this.mainHeight = window.innerHeight - 100

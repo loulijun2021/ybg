@@ -16,6 +16,7 @@ public interface ClockInfoMapper {
 
 //    List<ClockInfo> getAttendanceAll(String keyword,int dept,String date);
     List<ClockInfo> getAttendanceAll(String keyword,String dept,String date);
+    List<ClockInfo> getLeaveHistory(ClockInfo clockInfo);
 
     List<ClockInfo> queryAll();
 
@@ -26,6 +27,9 @@ public interface ClockInfoMapper {
     int singOut(ClockInfo clockInfo);
 
     int addLeave(ClockInfo clockInfo);
+
+    int isApprove(ClockInfo clockInfo);
+
 
     int addGoOut(ClockInfo clockInfo);
 }
