@@ -8,4 +8,11 @@ import java.util.List;
 @Mapper
 public interface DeptMapper {
     List<Dept> getDeptAll();
+
+    int insertDept(Dept dept);
+
+    int updateDept(Dept dept);
+
+    int deleteDept(int id);
+
 }

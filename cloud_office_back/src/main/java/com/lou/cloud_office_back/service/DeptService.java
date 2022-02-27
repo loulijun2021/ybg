@@ -6,4 +6,10 @@ import java.util.List;
 
 public interface DeptService {
     List<Dept> getDeptAll();
+
+    int insertDept(Dept dept);
+
+    int updateDept(Dept dept);
+
+    int deleteDept(int id);
 }

@@ -158,6 +158,18 @@ export const asyncRoutes = [
     ]
   },
   {
+    path: '/deptManage',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: '部门管理',
+        component: () => import('@/views/deptManage/index'),
+        meta: { title: '部门管理', icon: '', roles: ['1'] }
+      }
+    ]
+  },
+  {
     path: '/statistics',
     component: Layout,
     children: [

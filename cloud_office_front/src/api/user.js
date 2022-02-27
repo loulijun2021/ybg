@@ -45,14 +45,37 @@ export function getUserInfoAll(data) {
     params: data
   })
 }
-
+// 获取所有部门
 export function getDeptAll() {
   return request({
     url: '/dept/getDeptAll',
     method: 'get'
   })
 }
-
+// 新增部门
+export function insertDept(data) {
+  return request({
+    url: '/dept/insertDept',
+    method: 'post',
+    data
+  })
+}
+// 修改部门
+export function updateDept(data) {
+  return request({
+    url: '/dept/updateDept',
+    method: 'post',
+    data
+  })
+}
+// 删除部门
+export function deleteDept(data) {
+  return request({
+    url: '/dept/deleteDept',
+    method: 'get',
+    params: data
+  })
+}
 export function insertUserInfo(data) {
   return request({
     url: '/user/insertUserInfo',
