@@ -3,10 +3,12 @@
     <el-card class="box-card" :style="{marginTop: '10px',height:mainHeight+'px'}">
       <!--      头部搜索和添加-->
       <div style="display: flex;justify-content: space-between;">
-        <div style="display: flex;width: 500px">
+        <div style="display: flex;">
           <el-input v-model="queryInfo.query" placeholder="请输入内容" clearable @clear="getTableData" />
           <el-button style="margin-left: 10px" type="primary" icon="el-icon-search" @click="getTableData">查询</el-button>
           <el-button type="primary" icon="el-icon-plus" @click="addClick('添加')">添加</el-button>
+          <el-button type="primary" icon="el-icon-download" @click="download">导出所选</el-button>
+          <el-button type="primary" icon="el-icon-download" @click="download2">导出所有</el-button>
         </div>
         <div style="display: flex">
           <el-button-group>
@@ -94,7 +96,15 @@
 
 <script>
 import Pagination from '@/components/Pagination' // secondary package based on el-pagination
-import { deleteUserInfo, getDeptAll, getUserInfoAll, insertUserInfo, resetPassword, updateUserInfo } from '@/api/user'
+import {
+  deleteUserInfo,
+  download,
+  getDeptAll,
+  getUserInfoAll,
+  insertUserInfo,
+  resetPassword,
+  updateUserInfo
+} from '@/api/user'
 
 export default {
 
@@ -136,6 +146,32 @@ export default {
     this.getHeight()
   },
   methods: {
+    async download() {
+      const res = await download(this.arrId)
+      if (res.code === 20000) {
+        this.$message.success('下载成功！')
+
+        setTimeout(() => {
+          this.$notify.success({
+            title: '下载成功！',
+            message: '文件保存在E盘Excel下'
+          })
+        }, 2000)
+      }
+    },
+    async download2() {
+      const res = await download()
+      if (res.code === 20000) {
+        this.$message.success('下载成功！')
+
+        setTimeout(() => {
+          this.$notify.success({
+            title: '下载成功！',
+            message: '文件保存在E盘Excel下'
+          })
+        }, 2000)
+      }
+    },
     getHeight() {
       this.$nextTick(() => {
         this.mainHeight = window.innerHeight - 100

@@ -84,4 +84,14 @@ public class UserInfoServiceImpl implements UserInfoService {
     public int passwordChange(User user){
         return userInfoMapper.passwordChange(user);
     }
+
+    @Override
+    public List<User> selectAll() {
+        return userInfoMapper.getUserInfoAll("");
+    }
+
+    @Override
+    public User selectId(Integer id) {
+        return userInfoMapper.getUserById(id);
+    }
 }

@@ -26,4 +26,9 @@ public interface UserInfoService {
     int updateUserInfo(User user);
 
     int passwordChange(User user);
+
+    List<User> selectAll();
+
+    User selectId(Integer id);
+
 }

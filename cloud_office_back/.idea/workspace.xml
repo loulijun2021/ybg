@@ -6,16 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="3a3bfb97-c0ce-4dcd-b371-120fd6850a9f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/controller/DeptController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/controller/DeptController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/mapper/DeptMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/mapper/DeptMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/mapper/DeptMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/mapper/DeptMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/service/DeptService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/service/DeptService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/service/impl/DeptServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/service/impl/DeptServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/controller/UserInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/controller/UserInfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/mapper/UserInfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/mapper/UserInfoMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/mapper/UserInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/mapper/UserInfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/service/UserInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/service/UserInfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/service/impl/UserInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/service/impl/UserInfoServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/utils/ExcelUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/utils/ExcelUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/utils/SendResponseHeaderUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lou/cloud_office_back/utils/SendResponseHeaderUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/lou/cloud_office_back/controller/DeptController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lou/cloud_office_back/controller/DeptController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/lou/cloud_office_back/mapper/DeptMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lou/cloud_office_back/mapper/DeptMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/lou/cloud_office_back/service/impl/DeptServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lou/cloud_office_back/service/impl/DeptServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lou/cloud_office_back/controller/UserInfoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lou/cloud_office_back/controller/UserInfoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lou/cloud_office_back/mapper/UserInfoMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lou/cloud_office_back/mapper/UserInfoMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lou/cloud_office_back/service/impl/UserInfoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lou/cloud_office_back/service/impl/UserInfoServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cloud_office_front/src/views/staffManage/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../cloud_office_front/src/views/staffManage/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,17 +82,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="CloudOfficeBackApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="cloud_office_back" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.lou.cloud_office_back.CloudOfficeBackApplication" />
@@ -133,7 +122,9 @@
       <workItem from="1643179063196" duration="5476000" />
       <workItem from="1645078306630" duration="3000" />
       <workItem from="1645789895987" duration="133000" />
-      <workItem from="1645934288500" duration="11065000" />
+      <workItem from="1645934288500" duration="11747000" />
+      <workItem from="1645950770866" duration="9000" />
+      <workItem from="1646100320787" duration="9687000" />
     </task>
     <servers />
   </component>

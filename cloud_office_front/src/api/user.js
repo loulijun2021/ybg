@@ -1,4 +1,5 @@
 import request from '@/utils/request'
+import axios from 'axios'
 
 export function login(data) {
   return request({
@@ -109,6 +110,21 @@ export function passwordChange(data) {
 export function updateUserInfo(data) {
   return request({
     url: '/user/updateUserInfo',
+    method: 'post',
+    data
+  })
+}
+
+// 表单下载
+export function download(data) {
+  // var baseURL = process.env.VUE_APP_BASE_API
+  // return axios.post(baseURL + '/user/download', data, {
+  //   headers: {
+  //     'Content-type': 'multipart/form-data'
+  //   }
+  // })
+  return request({
+    url: '/user/download',
     method: 'post',
     data
   })

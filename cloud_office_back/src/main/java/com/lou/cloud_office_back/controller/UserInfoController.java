@@ -9,6 +9,7 @@ import com.lou.cloud_office_back.common.TokenUtil;
 import com.lou.cloud_office_back.entity.User;
 import com.lou.cloud_office_back.mapper.UserInfoMapper;
 import com.lou.cloud_office_back.service.UserInfoService;
+import com.lou.cloud_office_back.utils.ExcelUtil;
 import com.lou.cloud_office_back.utils.SendResponseHeaderUtil;
 import org.apache.ibatis.annotations.Param;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -18,7 +19,9 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -194,6 +197,30 @@ public class UserInfoController {
         }else {
             template.setMessage("原密码错误");
             template.setCode(50000);
+        }
+        return ResponseEntity.ok().body(template);
+    }
+
+    @PostMapping("/download")
+    @ResponseBody
+    public ResponseEntity<Object> download(@RequestBody(required = false) Integer[] ids) throws IOException {
+        ResultTemplate template=new ResultTemplate();
+        List<User> users = new ArrayList<>();
+        try {
+            if (ids == null){
+                users = userInfoService.selectAll();
+            }else {
+                for (Integer i : ids) {
+                    users.add(userInfoService.selectId(i));
+                }
+            }
+            ExcelUtil excelUtil = new ExcelUtil();
+            excelUtil.getHSSFWorkbook(users,null);
+            template.setCode(20000);
+            template.setMessage("下载成功");
+        }catch (Exception e){
+            template.setCode(50000);
+            template.setMessage("下载失败");
         }
         return ResponseEntity.ok().body(template);
     }

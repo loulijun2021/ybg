@@ -17,6 +17,8 @@ public interface UserInfoMapper {
 
     List<User> queryUserInfo(String username,String password);
 
+    User getUserById(Integer id);
+
     int addUser(User user);
 
     int insertUserInfo(User user);

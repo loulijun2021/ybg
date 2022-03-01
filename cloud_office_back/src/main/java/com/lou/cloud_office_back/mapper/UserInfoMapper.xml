@@ -23,6 +23,14 @@
         order by u.id desc
     </select>
 
+    <select id="getUserById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        SELECT u.id, u.name, u.`password`, u.role, d.name dept, d.id deptId
+        from t_user u
+                 left join t_dept d
+                           on u.dept = d.id
+        where u.id = #{id}
+    </select>
+
     <select id="queryUserInfo" resultMap="BaseResultMap">
         select *
         from t_user
