@@ -27,15 +27,15 @@
         @selection-change="handleSelectionChange"
       >
         <el-table-column type="selection" />
-        <el-table-column prop="username" label="姓名" />
+        <el-table-column prop="username" label="姓名" sortable />
         <!--        <el-table-column prop="password" label="密码" />-->
-        <el-table-column prop="role" label="角色">
+        <el-table-column prop="role" label="角色" sortable>
           <template slot-scope="{row}">
             <div v-if="row.role===1">管理员</div>
             <div v-else>员工</div>
           </template>
         </el-table-column>
-        <el-table-column prop="dept" label="部门" />
+        <el-table-column prop="dept" label="部门" sortable />
         <el-table-column label="操作" width="200">
           <template slot-scope="{row}">
             <el-button-group>

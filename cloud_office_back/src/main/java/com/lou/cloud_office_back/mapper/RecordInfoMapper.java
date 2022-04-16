@@ -14,6 +14,8 @@ import java.util.List;
 @Mapper
 public interface RecordInfoMapper {
 
+    List<Record> queryAllByName(Record record);
+
     List<Record> queryAll();
 
     int addRecord(Record record);

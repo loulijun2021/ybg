@@ -1,5 +1,7 @@
 package com.lou.cloud_office_back.service.impl;
 
+import com.lou.cloud_office_back.common.ResultTemplate;
+import com.lou.cloud_office_back.entity.ClockInfo;
 import com.lou.cloud_office_back.entity.Record;
 import com.lou.cloud_office_back.mapper.RecordInfoMapper;
 import com.lou.cloud_office_back.service.RecordInfoService;
@@ -20,6 +22,18 @@ public class RecordInfoServiceImpl implements RecordInfoService {
     private RecordInfoMapper recordInfoMapper;
 
     @Override
+    public ResultTemplate queryAllByName(Record record) {
+
+        ResultTemplate template = new ResultTemplate();
+
+        List<Record> list = recordInfoMapper.queryAllByName(record);
+        template.setData(list);
+        template.setCode(20000);
+        template.setMessage("success");
+        return template;
+    }
+
+  @Override
     public List<Record> queryAll() {
         return recordInfoMapper.queryAll();
     }

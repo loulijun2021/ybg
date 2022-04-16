@@ -42,39 +42,41 @@
         @selection-change="handleSelectionChange"
       >
         <el-table-column type="selection" />
-        <el-table-column prop="name" label="姓名" />
-        <el-table-column prop="dept" label="部门" />
-        <el-table-column label="日期">
+        <el-table-column prop="name" label="姓名" sortable />
+        <el-table-column prop="dept" label="部门" sortable />
+        <el-table-column label="日期" sortable>
           <template slot-scope="{row}">
-            <div>{{ row.start.substring(0,11) }}</div>
+            <div>{{ row.start.substring(0, 11) }}</div>
           </template>
         </el-table-column>
-        <el-table-column prop="start" label="上班时间">
+        <el-table-column prop="start" label="上班时间" sortable>
           <template slot-scope="{row}">
             <div v-if="row.start.substring(11)!=='00:00:00'">{{ row.start.substring(11) }}</div>
           </template>
         </el-table-column>
-        <el-table-column prop="end" label="下班时间">
+        <el-table-column prop="end" label="下班时间" sortable>
           <template slot-scope="{row}">
             <div v-if="row.end">{{ row.end.substring(11) }}</div>
           </template>
         </el-table-column>
-        <el-table-column prop="goOut" label="出差">
+        <el-table-column prop="goOut" label="出差" sortable>
           <template slot-scope="{row}">
             <div v-if="row.goOut===0">未出差</div>
             <div v-if="row.goOut===1">已出差</div>
           </template>
         </el-table-column>
-        <el-table-column prop="leave" label="请假">
+        <el-table-column prop="leave" label="请假" sortable>
           <template slot-scope="{row}">
             <div v-if="row.leave===1">已请假</div>
             <div v-if="row.leave===0">未请假</div>
           </template>
         </el-table-column>
-        <el-table-column prop="other" label="原因" />
+        <el-table-column prop="other" label="原因" sortable />
         <el-table-column label="操作">
           <template slot-scope="{row}">
-            <div v-if="row.isApproved==='0'"><el-button type="text" @click="approveClick(row.id)">未审批</el-button></div>
+            <div v-if="row.isApproved==='0'">
+              <el-button type="text" @click="approveClick(row.id)">未审批</el-button>
+            </div>
             <div v-if="row.isApproved==='1'">已通过</div>
             <div v-if="row.isApproved==='2'">已拒绝</div>
           </template>

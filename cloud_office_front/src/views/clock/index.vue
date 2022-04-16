@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <div style="display: flex;justify-content: space-between">
+    <div style="display: flex;justify-content: center;margin-top: 100px">
       <el-button type="primary" style="width: 300px;height: 300px;font-size: 38px" circle @click="clockClick">
         <div>上班打卡</div>
         <div style="font-size: 18px;margin-top: 10px">{{ date |dataFormat }}</div>
@@ -21,6 +21,7 @@ export default {
   data() {
     return {
       date: new Date()
+
     }
   },
   created() {
@@ -59,7 +60,11 @@ export default {
         name: getUsername(),
         start: this.date
       }
-      await singIn(data)
+      const res = await singIn(data)
+      if (res.code === 20000) {
+        // this.$notify.success('打卡成功！')
+        this.$message.success('上班打卡成功！')
+      }
     },
     currentDate() {
       setInterval(this.getTime, 500)

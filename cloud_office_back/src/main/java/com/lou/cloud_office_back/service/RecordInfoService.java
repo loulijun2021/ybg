@@ -1,5 +1,6 @@
 package com.lou.cloud_office_back.service;
 
+import com.lou.cloud_office_back.common.ResultTemplate;
 import com.lou.cloud_office_back.entity.Record;
 
 import java.util.List;
@@ -12,6 +13,7 @@ import java.util.List;
 public interface RecordInfoService {
 
     List<Record> queryAll();
+    ResultTemplate queryAllByName(Record record);
 
     int addRecord(Record record);
 

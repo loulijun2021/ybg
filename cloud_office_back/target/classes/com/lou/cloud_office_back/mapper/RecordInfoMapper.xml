@@ -2,9 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lou.cloud_office_back.mapper.RecordInfoMapper">
 
+    <select id="queryAllByName" resultType="com.lou.cloud_office_back.entity.Record">
+        select r.id,u.name,r.record,r.date
+        from t_work_record r left join t_user u on r.name = u.id where u.name=#{name,jdbcType=VARCHAR} ORDER BY r.id desc
+    </select>
+
     <select id="queryAll" resultType="com.lou.cloud_office_back.entity.Record">
         select r.id,u.name,r.record,r.date
-        form t_work_record r left join t_user u on r.name = u.id
+        from t_work_record r left join t_user u on r.name = u.id
     </select>
 
     <insert id="addRecord" parameterType="com.lou.cloud_office_back.entity.Record">
