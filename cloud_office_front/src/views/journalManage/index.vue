@@ -19,7 +19,7 @@
       <el-table-column label="操作" width="100">
         <template slot-scope="{row}">
           <!--          <el-button type="text">查看</el-button>-->
-          <el-button type="text">删除</el-button>
+          <el-button type="text" @click="deleteById(row)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import { getRecordAll } from '@/api/journal'
+import { deleteRecordById, getRecordAll } from '@/api/journal'
 
 export default {
   name: 'Index',
@@ -43,6 +43,16 @@ export default {
     this.getRecordAll()
   },
   methods: {
+    async deleteById(row) {
+      const data = {
+        id: row.id
+      }
+      const res = await deleteRecordById(data)
+      if (res.code === 20000) {
+        await this.getRecordAll()
+        this.$message.success('日志删除成功！')
+      }
+    },
     getRecordAll() {
       getRecordAll().then(res => {
         if (res.code === 20000) {

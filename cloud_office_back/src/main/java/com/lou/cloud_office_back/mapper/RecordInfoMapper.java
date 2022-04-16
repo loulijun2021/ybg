@@ -22,5 +22,5 @@ public interface RecordInfoMapper {
 
     int updateRecord(int id);
 
-    int deleteRecord(int id);
+    int deleteRecord(int[] id);
 }

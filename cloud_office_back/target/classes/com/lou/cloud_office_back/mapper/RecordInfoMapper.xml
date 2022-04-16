@@ -3,28 +3,41 @@
 <mapper namespace="com.lou.cloud_office_back.mapper.RecordInfoMapper">
 
     <select id="queryAllByName" resultType="com.lou.cloud_office_back.entity.Record">
-        select r.id,u.name,r.record,r.date
-        from t_work_record r left join t_user u on r.name = u.id where u.name=#{name,jdbcType=VARCHAR} ORDER BY r.id desc
+        select r.id, u.name, r.record, r.date
+        from t_work_record r
+                 left join t_user u on r.name = u.id
+        where u.name = #{name,jdbcType=VARCHAR}
+        ORDER BY r.id desc
     </select>
 
     <select id="queryAll" resultType="com.lou.cloud_office_back.entity.Record">
-        select r.id,u.name,r.record,r.date
-        from t_work_record r left join t_user u on r.name = u.id
+        select r.id, u.name, r.record, r.date
+        from t_work_record r
+                 left join t_user u on r.name = u.id
     </select>
 
     <insert id="addRecord" parameterType="com.lou.cloud_office_back.entity.Record">
-        insert into t_work_record(name,record,date)
-        values (#{name,jdbcType=VARCHAR},#{record,jdbcType=VARCHAR},now())
+        insert into t_work_record(name, record, date)
+        values (#{name,jdbcType=VARCHAR}, #{record,jdbcType=VARCHAR}, now())
     </insert>
-    
+
     <update id="updateRecord" parameterType="int">
-        update t_work_record set record = #{record,jdbcType=VARCHAR},date=now()
-        where id =#{id,jdbcType=VARCHAR}
+        update t_work_record
+        set record = #{record,jdbcType=VARCHAR},
+            date=now()
+        where id = #{id,jdbcType=VARCHAR}
     </update>
 
-    <delete id="deleteRecord" parameterType="int">
-        delete * from t_work_record
-        where id = #{id,jdbcType=VARCHAR}
-    </delete>
+<!--    <delete id="deleteRecord" parameterType="com.lou.cloud_office_back.entity.Record">-->
+<!--        delete-->
+<!--        from t_work_record-->
+<!--        where id = #{id,jdbcType=INTEGER}-->
+<!--    </delete>-->
 
+        <delete id="deleteRecord">
+            DELETE FROM t_work_record WHERE id IN
+            <foreach collection="array" item="id" open="(" separator="," close=")">
+                #{id}
+            </foreach>
+        </delete>
 </mapper>

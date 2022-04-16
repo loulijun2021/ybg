@@ -71,6 +71,6 @@
     </update>
 
     <update id="passwordChange">
-        UPDATE t_user SET password=#{newPassword,jdbcType=VARCHAR} WHERE id=2 AND `password`=#{password,jdbcType=VARCHAR}
+        UPDATE t_user SET password=#{newPassword,jdbcType=VARCHAR} WHERE id=#{id,jdbcType=VARCHAR} AND `password`=#{password,jdbcType=VARCHAR}
     </update>
 </mapper>

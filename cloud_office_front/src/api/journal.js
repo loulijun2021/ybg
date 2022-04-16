@@ -21,3 +21,10 @@ export function getRecordAll() {
 
   })
 }
+export function deleteRecordById(data) {
+  return request({
+    url: '/record/deleteRecord',
+    method: 'get',
+    params: data
+  })
+}

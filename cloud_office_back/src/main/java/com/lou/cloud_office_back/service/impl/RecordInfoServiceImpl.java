@@ -49,7 +49,7 @@ public class RecordInfoServiceImpl implements RecordInfoService {
     }
 
     @Override
-    public int deleteRecord(int id) {
+    public int deleteRecord(int[] id) {
         return recordInfoMapper.deleteRecord(id);
     }
 }

@@ -6,6 +6,7 @@ import com.lou.cloud_office_back.entity.Record;
 import com.lou.cloud_office_back.service.RecordInfoService;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -58,6 +59,24 @@ public class RecordInfoController {
             result.setCode(20000);
         }
         return result;
+    }
+
+
+    //删除员工的日志
+    @RequestMapping("/deleteRecord")
+    @ResponseBody
+    public ResponseEntity<Object> deleteRecord(@Param("id") int[] id) {
+        System.out.println(id);
+        ResultTemplate template=new ResultTemplate();
+        if(recordInfoService.deleteRecord(id)>0){
+            template.setMessage("success");
+//            template.setData(userInfoService.insertUserInfo(user));
+            template.setCode(20000);
+        }else {
+            template.setMessage("fail");
+            template.setCode(50000);
+        }
+        return ResponseEntity.ok().body(template);
     }
 
 }

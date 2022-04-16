@@ -92,22 +92,24 @@ export default {
     const validateUsername = (rule, value, callback) => {
       // if (!validUsername(value)) {
       if (value.length < 1) {
-        callback(new Error('Please enter the correct user name'))
+        // callback(new Error('Please enter the correct user name'))
+        callback(new Error('请输入用户名'))
       } else {
         callback()
       }
     }
     const validatePassword = (rule, value, callback) => {
       if (value.length < 1) {
-        callback(new Error('The password can not be less than 1 digits'))
+        // callback(new Error('The password can not be less than 1 digits'))
+        callback(new Error('请输入正确的密码'))
       } else {
         callback()
       }
     }
     return {
       loginForm: {
-        username: 'admin',
-        password: '123'
+        username: '',
+        password: ''
       },
       loginRules: {
         username: [{ required: true, trigger: 'blur', validator: validateUsername }],
